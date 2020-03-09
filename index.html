@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://kit.fontawesome.com/cfa5b23a00.js" crossorigin="anonymous"></script>
+    <title>Mariam's Accessible Media</title>
+</head>
+<body>
+    <h1 class="hidden">Mariam's Accessibile Media</h1>
+    <header>
+        <img class="logo" src="images/logo.svg" alt="logo">
+        <i class="fas fa-bars"></i>
+        <ul class="nav">
+            <h2 class="hidden">Main Navigation</h2>
+            <li><a href="#">Movie</a></li>
+            <li><a href="#">TV</a></li>
+            <li><a href="#">Audio</a></li>
+        </ul>
+    </header>
+
+    <main class="media">
+        <h2>What Would You Like To Do?</h2>
+
+        <section class="movie-wrapper">
+            <h3>Would you like to watch a movie?</h3>
+            <video class="movie" controls>
+                <source src="video/sound_of_music.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="tv-wrapper">
+            <h3>Would you like to watch a TV show?</h3>
+            <video class="tv" controls>
+                <source src="video/seinfeld.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="audio-wrapper">
+            <h3>Would you like to listen to a song?</h3>
+            <audio class="audio" controls>
+                <source src="audio/dont_speak.mp3" type="audio/mpeg">
+            </audio>
+            <button v-on:click="viewTranscript">Click to view transcript</button>
+            <p class="transcript" :class="{'visible':transcript.visible}">
+                You and me
+                We used to be together
+                Every day together always
+                I really feel
+                That I'm losing my best friend
+                I can't believe this could be the end
+                It looks as though you're letting go
+                And if it's real
+                Well I don't want to know
+                Don't speak
+                I know just what you're saying
+                So please stop explaining
+                Don't tell me 'cause it hurts
+                Don't speak
+                I know what you're thinking
+                I don't need your reasons
+                Don't tell me 'cause it hurts
+                Our memories
+                They can be inviting
+                But some are altogether mighty frightening
+                As we die, both you and I
+                With my head in my hands I sit and cry
+                Don't speak
+                I know just what you're saying
+                So please stop explaining
+                Don't tell me 'cause it hurts
+                (No, no, no) Don't speak
+                I know what you're thinking
+                And I don't need your reasons
+                Don't tell me 'cause it hurts
+                It's all…
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <img class="logo" src="images/logo.svg" alt="logo">
+        <p>&copy; Mariam's Accessible Media 2020.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
