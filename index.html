@@ -3,88 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://unpkg.com/vue"></script>
     <script src="https://kit.fontawesome.com/cfa5b23a00.js" crossorigin="anonymous"></script>
-    <title>Mariam's Accessible Media</title>
+    <title>M Media Player</title>
 </head>
 <body>
-    <h1 class="hidden">Mariam's Accessibile Media</h1>
-    <header>
-        <img class="logo" src="images/logo.svg" alt="logo">
-        <i class="fas fa-bars"></i>
-        <ul class="nav">
-            <h2 class="hidden">Main Navigation</h2>
-            <li><a href="#">Movie</a></li>
-            <li><a href="#">TV</a></li>
-            <li><a href="#">Audio</a></li>
-        </ul>
+    <div id="app">
+    <h1 class="sr-only">M Media Player</h1>
+    <header class="header container-fluid px-2 py-4">
+        <div class="clearfix">
+            <h2 class="sr-only">Main Header</h2>
+            <a href="index.html" class="logo float-left ml-3">
+                <img src="images/logo.svg" alt="logo">
+            </a>
+            <i aria-label="menu-button" tabindex="0" class="fas fa-bars fa-2x float-right mr-3"></i>
+            <ul class="sr-only sr-only-focusable">
+                <h2 class="sr-only">Main Navigation</h2>
+                <li><a href="#">Movie</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Audio</a></li>
+            </ul>
+        </div>
     </header>
 
-    <main id="app" class="media">
-        <h2>What Would You Like To Do?</h2>
-
-        <section class="movie-wrapper">
-            <h3>Would you like to watch a movie?</h3>
-            <video class="movie" controls>
-                <source src="video/sound_of_music.mp4" type="video/mp4">
-            </video>
+    <main class="container">
+        <div class="col">
+        <h2 class="mt-5 h2 text-center">Welcome to M Media Player</h2>
+        <p class="mt-3 text-center">We have various types of media to choose from. We made sure all our media are accessible to everyone.</p>
+        
+        <section class="media mt-5 p-5">
+            <div class="col">
+                <h3 class="h3 text-center">Movies</h3>
+                <h4 class="h4 text-center">Sound of Music</h4>
+                <video class="mt-3 mx-auto" controls>
+                    <source src="video/sound_of_music.mp4" type="video/mp4">
+                    <source src="video/sound_of_music.webm" type="video/webm">
+                    <track kind="captions" src="video/sound-of-music.json">
+                </video>
+                <div class="controls row mt-2 d-block mx-auto">
+                    <i class="fas fa-play mr-2"></i>
+                    <i class="fas fa-stop mr-2"></i>
+                    <i class="fas fa-step-backward mr-2"></i>
+                    <i class="fas fa-volume-up mr-2"></i>
+                    <i class="fas fa-volume-mute mr-2"></i>
+                    <i class="fas fa-closed-captioning "></i>
+                </div>
+            </div>
         </section>
 
-        <section class="tv-wrapper">
-            <h3>Would you like to watch a TV show?</h3>
-            <video class="tv" controls>
-                <source src="video/seinfeld.mp4" type="video/mp4">
-            </video>
+        <section class="media mt-5 p-5">
+            <div class="col">
+                <h3 class="h3 text-center">TV</h3>
+                <h4 class="h4 text-center">Seinfeld</h4>
+                <video class="mt-3 d-block mx-auto" controls>
+                    <source src="video/seinfeld.mp4" type="video/mp4">
+                    <source src="video/seinfeld.webm" type="video/webm">
+                </video>
+            </div>
         </section>
 
-        <section class="audio-wrapper">
-            <h3>Would you like to listen to a song?</h3>
-            <audio class="audio" controls>
-                <source src="audio/dont_speak.mp3" type="audio/mpeg">
-            </audio>
-            <button v-on:click="viewTranscript">Click to view transcript</button>
-            <p class="transcript" :class="{'visible':transcript.visible}">
-                You and me
-                We used to be together
-                Every day together always
-                I really feel
-                That I'm losing my best friend
-                I can't believe this could be the end
-                It looks as though you're letting go
-                And if it's real
-                Well I don't want to know
-                Don't speak
-                I know just what you're saying
-                So please stop explaining
-                Don't tell me 'cause it hurts
-                Don't speak
-                I know what you're thinking
-                I don't need your reasons
-                Don't tell me 'cause it hurts
-                Our memories
-                They can be inviting
-                But some are altogether mighty frightening
-                As we die, both you and I
-                With my head in my hands I sit and cry
-                Don't speak
-                I know just what you're saying
-                So please stop explaining
-                Don't tell me 'cause it hurts
-                (No, no, no) Don't speak
-                I know what you're thinking
-                And I don't need your reasons
-                Don't tell me 'cause it hurts
-                It's all…
-            </p>
+        <section class="media mt-5 p-5">
+            <div class="col">
+                <h3 class="h3 text-center">Songs</h3>
+                <h4 class="h4 text-center">Don't Speak - No Doubt</h4>
+                <audio class="mt-3 d-block mx-auto" controls>
+                    <source src="audio/dont_speak.mp3" type="audio/mpeg">
+                    <source src="audio/dont_speak.ogg" type="audio/ogg">
+                </audio>
+                <button v-on:click="viewTranscript" class="d-block mx-auto mt-3 py-2 px-4">transcript</button>
+                <p class="transcript d-none" :class="{'visible':transcript.visible}">
+                    You and me<br>
+                    We used to be together<br>
+                    Every day together always<br>
+                    I really feel<br>
+                    That I'm losing my best friend<br>
+                    I can't believe this could be the end<br>
+                    It looks as though you're letting go<br>
+                    And if it's real<br>
+                    Well I don't want to know<br>
+                    Don't speak<br>
+                    I know just what you're saying<br>
+                    So please stop explaining<br>
+                    Don't tell me 'cause it hurts<br>
+                    Don't speak<br>
+                    I know what you're thinking<br>
+                    I don't need your reasons<br>
+                    Don't tell me 'cause it hurts<br>
+                    Our memories<br>
+                    They can be inviting<br>
+                    But some are altogether mighty frightening<br>
+                    As we die, both you and I<br>
+                    With my head in my hands I sit and cry<br>
+                    Don't speak<br>
+                    I know just what you're saying<br>
+                    So please stop explaining<br>
+                    Don't tell me 'cause it hurts<br>
+                    (No, no, no) Don't speak<br>
+                    I know what you're thinking<br>
+                    And I don't need your reasons<br>
+                    Don't tell me 'cause it hurts<br>
+                    It's all…<br>
+                </p>
+            </div>
         </section>
+    </div>
 
     </main>
 
-    <footer>
-        <img class="logo" src="images/logo.svg" alt="logo">
-        <p>&copy; Mariam's Accessible Media 2020.</p>
+    <footer class="footer container-fluid p-4 mt-5">
+        <h2 class="sr-only">Main Footer</h2>
+        <p class="text-center">&copy; M Media Player 2020.</p>
     </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

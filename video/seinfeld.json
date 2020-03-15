@@ -1,0 +1,132 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  }, {
+    "fcForeColor": 15066597
+  }, {
+    "fcForeColor": 13421772
+  } ],
+  "wsWinStyles": [ {
+  
+  }, {
+    "mhModeHint": 2,
+    "juJustifCode": 0,
+    "sdScrollDir": 3
+  } ],
+  "wpWinPositions": [ {
+  
+  }, {
+    "apPoint": 6,
+    "ahHorPos": 20,
+    "avVerPos": 100,
+    "rcRows": 2,
+    "ccCols": 40
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 57730,
+    "id": 1,
+    "wpWinPosId": 1,
+    "wsWinStyleId": 1
+  }, {
+    "tStartMs": 20,
+    "dDurationMs": 44780,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "what's",
+      "acAsrConf": 252
+    }, {
+      "utf8": " the",
+      "tOffsetMs": 810,
+      "acAsrConf": 252
+    }, {
+      "utf8": " show",
+      "tOffsetMs": 899,
+      "acAsrConf": 201
+    }, {
+      "utf8": " Chinese",
+      "tOffsetMs": 7520,
+      "acAsrConf": 210
+    }, {
+      "utf8": " on",
+      "tOffsetMs": 15800,
+      "acAsrConf": 146
+    }, {
+      "utf8": " the",
+      "tOffsetMs": 16800,
+      "acAsrConf": 227
+    }, {
+      "utf8": " show",
+      "tOffsetMs": 16830,
+      "acAsrConf": 183
+    }, {
+      "utf8": " yeah",
+      "tOffsetMs": 41780,
+      "acAsrConf": 238
+    } ]
+  }, {
+    "tStartMs": 51060,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 51070,
+    "dDurationMs": 6660,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "Seinfeld",
+      "acAsrConf": 252
+    }, {
+      "utf8": " on",
+      "tOffsetMs": 1000,
+      "acAsrConf": 202
+    }, {
+      "utf8": " -",
+      "tOffsetMs": 1870,
+      "acAsrConf": 207
+    }, {
+      "utf8": " I",
+      "tOffsetMs": 2440,
+      "acAsrConf": 255
+    }, {
+      "utf8": " think",
+      "tOffsetMs": 3000,
+      "acAsrConf": 227
+    }, {
+      "utf8": " you",
+      "tOffsetMs": 4000,
+      "acAsrConf": 252
+    }, {
+      "utf8": " may",
+      "tOffsetMs": 4060,
+      "acAsrConf": 214
+    }, {
+      "utf8": " have",
+      "tOffsetMs": 4149,
+      "acAsrConf": 237
+    } ]
+  }, {
+    "tStartMs": 55240,
+    "dDurationMs": 2490,
+    "wWinId": 1,
+    "aAppend": 1,
+    "segs": [ {
+      "utf8": "\n"
+    } ]
+  }, {
+    "tStartMs": 55250,
+    "dDurationMs": 2480,
+    "wWinId": 1,
+    "segs": [ {
+      "utf8": "something",
+      "acAsrConf": 227
+    }, {
+      "utf8": " here",
+      "tOffsetMs": 329,
+      "acAsrConf": 203
+    } ]
+  } ]
+}

@@ -1,0 +1,87 @@
+@import 'modules/_reset';
+@import '_vars';
+
+html, body {
+    height: 100%;
+}
+
+img, video, embed, object {
+    max-width: 100%;
+}
+
+body {
+    background-color: $black;
+    font-family: $font;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#app {
+    height: 100vh;
+}
+
+.logo {
+    transition: all ease .5s;
+    img {
+        width: 80px;
+    }
+}
+
+.logo:hover {
+    opacity: .5;
+    transform: scale(1.1);
+}
+
+.logo:focus {
+    opacity: .5;
+    transform: scale(1.1);
+}
+
+.fa-bars {
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.fa-bars:hover {
+    opacity: .5;
+    transform: scale(1.1);
+}
+
+.fa-bars:focus {
+    opacity: .5;
+    transform: scale(1.1);
+}
+
+.media {
+    border: $blue 2px solid;
+    border-radius: 8px;
+}
+
+.fas {
+    color: $blue;
+    border: $blue 1px solid;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1.2em;
+}
+
+button {
+    border: $purple 2px solid;
+    border-radius: 8px;
+    background-color: $purple;
+    color: white;
+    transition: all .5s ease;
+}
+
+button:hover {
+    background-color: $black;
+    border: $blue 2px solid;
+}
+
+.footer {
+    background-color: $blue;
+}
