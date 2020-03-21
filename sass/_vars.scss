@@ -3,3 +3,15 @@ $blue: #323AD9;
 $purple: #8091F2;
 
 $font: 'Titillium Web', sans-serif;
+
+@mixin scale {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+@mixin scale3 {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}

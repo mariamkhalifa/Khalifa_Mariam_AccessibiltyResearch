@@ -31,14 +31,9 @@ a {
     }
 }
 
-.logo:hover {
-    opacity: .5;
-    transform: scale(1.1);
-}
-
-.logo:focus {
-    opacity: .5;
-    transform: scale(1.1);
+.logo:hover, .logo:focus {
+    //opacity: .5;
+    @include scale;
 }
 
 .fa-bars {
@@ -47,14 +42,66 @@ a {
 }
 
 .fa-bars:hover, .fa-bars:focus {
-    opacity: .5;
-    transform: scale(1.1);
+    //opacity: .5;
+    color: $blue;
+    @include scale3;
 }
 
 .media {
+    //border: $blue 2px solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-title {
+    width: 150px;
+    height: 40px;
+    h3 {
+        width: 100%;
+    }
+}
+
+.fa-chevron-right, .fa-chevron-left {
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.fa-chevron-right:hover, .fa-chevron-left:hover,
+.fa-chevron-right:focus, .fa-chevron-left:focus {
+    //opacity: .5;
+    color: $blue;
+    @include scale3;
+}
+
+.thumb {
+    width: 10%;
+    img {
+        width: 100%;
+    }
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.thumb:hover, .thumb:focus {
+    opacity: .5;
+    @include scale;
+    color: $blue;
+}
+
+.player {
+    //height: 100vh;
     border: $blue 2px solid;
     border-radius: 8px;
 }
+
+
 
 .icon {
     color: $blue;
