@@ -1,12 +1,12 @@
-let movie = document.querySelector('.movie'),
-    tv = document.querySelector('.tv'),
-    song = document.querySelector('.song'),
-    controls = document.querySelector('.controls');
+// let movie = document.querySelector('.movie'),
+//     tv = document.querySelector('.tv'),
+//     song = document.querySelector('.song'),
+//     controls = document.querySelector('.controls');
 
-movie.removeAttribute('controls');
-tv.removeAttribute('controls');
-song.removeAttribute('controls');
-controls.style.display = 'block';
+// movie.removeAttribute('controls');
+// tv.removeAttribute('controls');
+// song.removeAttribute('controls');
+// controls.style.display = 'block';
 
 var vm = new Vue({
 
