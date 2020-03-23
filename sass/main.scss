@@ -21,7 +21,7 @@ a {
 }
 
 #app {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .logo {
@@ -36,52 +36,8 @@ a {
     @include scale;
 }
 
-.fa-bars {
-    cursor: pointer;
-    transition: all ease .5s;
-}
-
-.fa-bars:hover, .fa-bars:focus {
-    //opacity: .5;
-    color: $blue;
-    @include scale3;
-}
-
-.media {
-    //border: $blue 2px solid;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-}
-
-.media-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.media-title {
-    width: 150px;
-    height: 40px;
-    h3 {
-        width: 100%;
-    }
-}
-
-.fa-chevron-right, .fa-chevron-left {
-    transition: all .5s ease;
-    cursor: pointer;
-}
-
-.fa-chevron-right:hover, .fa-chevron-left:hover,
-.fa-chevron-right:focus, .fa-chevron-left:focus {
-    //opacity: .5;
-    color: $blue;
-    @include scale3;
-}
-
 .thumb {
-    width: 10%;
+    width: 15%;
     img {
         width: 100%;
     }
@@ -90,22 +46,18 @@ a {
 }
 
 .thumb:hover, .thumb:focus {
-    opacity: .5;
     @include scale;
-    color: $blue;
+    color: $purple;
 }
 
 .player {
-    //height: 100vh;
-    border: $blue 2px solid;
+    border: $purple 2px solid;
     border-radius: 8px;
 }
 
-
-
 .icon {
-    color: $blue;
-    border: $blue 1px solid;
+    color: $purple;
+    border: $purple 1px solid;
     padding: 10px;
     border-radius: 20px;
     font-size: 1.2em;
@@ -125,20 +77,20 @@ a {
     border: white 1px solid;
 }
 
-// .controls {
-//     display: none;
-// }
+::cue {
+    font-size: 1.2em;
+}
 
 button {
-    border: $blue 2px solid;
+    border: $purple 2px solid;
     border-radius: 8px;
-    background-color: $blue;
-    color: white;
+    background-color: $black;
+    color: $purple;
     transition: all .5s ease;
 }
 
 button:hover, button:focus {
-    background-color: $black;
+    color: white;
     border: white 2px solid;
 }
 
@@ -152,8 +104,16 @@ button:hover, button:focus {
     align-items: center;
     text-align: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .footer {
-    background-color: $blue;
+    background-color: $purple;
 }
+
+@media screen and (min-width: 768px)
+ {
+    p {
+        font-size: 1.2em
+    }
+ }

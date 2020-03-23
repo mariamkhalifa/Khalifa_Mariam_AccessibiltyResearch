@@ -1,63 +1,111 @@
-// let movie = document.querySelector('.movie'),
-//     tv = document.querySelector('.tv'),
-//     song = document.querySelector('.song'),
-//     controls = document.querySelector('.controls');
-
-// movie.removeAttribute('controls');
-// tv.removeAttribute('controls');
-// song.removeAttribute('controls');
-// controls.style.display = 'block';
 
 var vm = new Vue({
 
 el: "#app",
 
+props: {
+    src: String
+},
+
 data: {
+    player: false,
+
     transcript: {
         view: false
     },
 
-    movie: {
+    media: {
         paused: false,
-        muted: false
+        muted: false,
+        active: false,
+        type: "",
+        name: "",
+        src: ""
     },
+
+    video: false,
+
+    audio: false
 },
 
 methods: {
-    playPauseMovie() {
+    toggleCaptions() {
+        let tt = (document.querySelector('.media')).textTracks;
+        for(var i=0; i < tt.length; i++) {
+            if(tt[i].mode === "disabled") {
+                tt[i].mode = "showing";
+            }
+            else {
+                tt[i].mode = "disabled";
+            }   
+        }
+    },
+
+    setSrc1() {
+        this.player = true;
+        this.media.active = true;
+        this.video = true;
+        this.audio = false,
+        this.media.paused = false;
+        this.media.type = "Movies";
+        this.media.name = "Sound of Music";
+        this.media.src = "sound_of_music";
+        document.querySelector('.media').load();
+        this.transcript.view = false;
+    },
+
+    setSrc2() {
+        this.player = true;
+        this.media.active = true;
+        this.video = true;
+        this.audio = false,
+        this.media.paused = false;
+        this.media.type = "TV";
+        this.media.name = "Seinfeld";
+        this.media.src = "seinfeld";
+        document.querySelector('.media').load();
+        this.transcript.view = false;
+    },
+
+    setSrc3() {
+        this.player = true;
+        this.media.active = true;
+        this.audio = true;
+        this.video = false,
+        this.media.paused = false;
+        this.media.type = "Songs";
+        this.media.name = "Don't Speak - No Doubt";
+        this.media.src = "dont_speak";
+        document.querySelector('.media').load();
+        this.transcript.view = false;
+    },
+
+    playPauseMedia() {
         //movie.play();
-        if(document.querySelector('.movie').paused){
-            document.querySelector('.movie').play();
-            this.movie.paused = !(this.movie.paused);
-            //document.querySelector('.play').classList.remove('fa-play');
-            //document.querySelector('.play').classList.add('fa-pause');
+        if(document.querySelector('.media').paused){
+            document.querySelector('.media').play();
+            this.media.paused = !(this.media.paused);
         }
         else {
-            document.querySelector('.movie').pause();
-            this.movie.paused = !(this.movie.paused);
-            //document.querySelector('.play').classList.add('fa-play');
-            //document.querySelector('.play').classList.remove('fa-pause');
+            document.querySelector('.media').pause();
+            this.media.paused = !(this.media.paused);
         }
-        
     },
 
-    stopMovie() {
-        document.querySelector('.movie').pause();
-        document.querySelector('.movie').currentTime = 0;
-        this.movie.paused = false;
-        //document.querySelector('.play').classList.add('fa-play');
-        //document.querySelector('.play').classList.remove('fa-pause');
+    stopMedia() {
+        document.querySelector('.media').pause();
+        document.querySelector('.media').currentTime = 0;
+        this.media.paused = false;
     },
 
-    muteMovie() {
-        document.querySelector('.movie').muted = !(document.querySelector('.movie').muted);
-        this.movie.muted = !(this.movie.muted);
-        //document.querySelector('.play').classList.add('fa-play');
-        //document.querySelector('.play').classList.remove('fa-pause');
+    muteMedia() {
+        document.querySelector('.media').muted = !(document.querySelector('.media').muted);
+        this.media.muted = !(this.media.muted);
     },
 
     viewTranscript() {
         this.transcript.view = (this.transcript.view) ? false : true;
     }
 }
+
 });
