@@ -1,12 +1,26 @@
 Vue.prototype.$mediaEl = document.querySelector('.media');
 
+Vue.component('poster', {
+    props: {
+        type: String,
+        name: String,
+        src: String,
+        isaudio: Boolean,
+        isvideo: Boolean
+    },
+
+    template: `
+    <li @click="$emit('make-selection', type, src, name, isvideo, isaudio)" tabindex="0" class="thumb mx-auto">
+        <h3 class="h4 text-center">{{ type }}</h3>
+        <img class="mt-3" :src="'images/' + src + '.jpg'" alt="poster">
+        <h4 class="h6 text-center mt-2">{{ name }}</h4>
+    </li>
+    `
+})
+
 var vm = new Vue({
 
 el: "#app",
-
-props: {
-    src: String
-},
 
 data: {
     player: false,
@@ -19,27 +33,33 @@ data: {
         paused: false,
         muted: false,
         active: false,
-        type: "",
-        name: "",
-        src: ""
     },
 
     video: false,
 
-    audio: false
+    audio: false,
+
+    mediaelements: [
+        { type: "Movies", name: "Sound of Music", src: "sound_of_music", isvideo: true, isaudio: false},
+        { type: "TV", name: "Seinfeld", src: "seinfeld", isvideo: true, isaudio: false},
+        { type: "Songs", name: "Don't Speak - No Doubt", src: "dont_speak", isvideo: false, isaudio: true}
+    ],
+
+    mediatype: "",
+
+    medianame: "",
+
+    mediasrc: ""
 },
 
 methods: {
 
     updateProgress() {
-        let media = document.querySelector('.media'),
-            progress = document.querySelector('#progress');
-
-        progress.value = media.currentTime / media.duration;
+        this.$refs.progress.value = this.$refs.mediaEl.currentTime / this.$refs.mediaEl.duration;
     },
 
     toggleCaptions() {
-        let tt = (document.querySelector('.media')).textTracks;
+        let tt = (this.$refs.mediaEl).textTracks;
         for(var i=0; i < tt.length; i++) {
             if(tt[i].mode === "disabled") {
                 tt[i].mode = "showing";
@@ -50,75 +70,38 @@ methods: {
         }
     },
 
-    setSrc1() {
+    setSrc(type, src, name, isvideo, isaudio) {
         this.player = true;
         this.media.active = true;
-        this.video = true;
-        this.audio = false,
+        this.video = isvideo;
+        this.audio = isaudio,
         this.media.paused = false;
-        this.media.type = "Movies";
-        this.media.name = "Sound of Music";
-        this.media.src = "sound_of_music";
         this.transcript.view = false;
-        let media =  document.querySelector('.media');
-        if(media) {
-            document.querySelector('.media').load();
-        }
-    },
-
-    setSrc2() {
-        this.player = true;
-        this.media.active = true;
-        this.video = true;
-        this.audio = false,
-        this.media.paused = false;
-        this.media.type = "TV";
-        this.media.name = "Seinfeld";
-        this.media.src = "seinfeld";
-        this.transcript.view = false;
-        let media =  document.querySelector('.media');
-        if(media) {
-            document.querySelector('.media').load();
-        }
-    },
-
-    setSrc3() {
-        this.player = true;
-        this.media.active = true;
-        this.audio = true;
-        this.video = false,
-        this.media.paused = false;
-        this.media.type = "Songs";
-        this.media.name = "Don't Speak - No Doubt";
-        this.media.src = "dont_speak";
-        this.transcript.view = false;
-        let media =  document.querySelector('.media');
-        if(media) {
-            document.querySelector('.media').load();
-        }
+        this.mediatype = type;
+        this.medianame = name;
+        this.mediasrc = src;
+        this.$refs.mediaEl.load();
     },
 
     playPauseMedia() {
-        //movie.play();
-        if(document.querySelector('.media').paused){
-            document.querySelector('.media').play();
+        if(this.$refs.mediaEl.paused){
+            this.$refs.mediaEl.play();
             this.media.paused = !(this.media.paused);
         }
         else {
-            document.querySelector('.media').pause();
+            this.$refs.mediaEl.pause();
             this.media.paused = !(this.media.paused);
         }
     },
 
     stopMedia() {
-        this.$mediaEl.pause();
-        //document.querySelector('.media').pause();
-        document.querySelector('.media').currentTime = 0;
+        this.$refs.mediaEl.pause();
+        this.$refs.mediaEl.currentTime = 0;
         this.media.paused = false;
     },
 
     muteMedia() {
-        document.querySelector('.media').muted = !(document.querySelector('.media').muted);
+        this.$refs.mediaEl.muted = !(this.$refs.mediaEl.muted);
         this.media.muted = !(this.media.muted);
     },
 
