@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
@@ -53,7 +54,7 @@
                     <div class="col">
                         <h3 class="h3 text-center">{{media.type}}</h3>
                         <h4 class="h4 text-center">{{media.name}}</h4>
-                        <video v-if="video" class="media mt-3 d-block mx-auto">
+                        <video v-if="video" v-on:timeupdate="updateProgress" class="media mt-3 d-block mx-auto">
                             <source :src="'video/' + media.src  + '.mp4'" type="video/mp4">
                             <source :src="'video/' + media.src  + '.webm'" type="video/webm">
                             <track kind="captions" :src="'video/' + media.src  + '.vtt'">
@@ -62,6 +63,7 @@
                             <source :src="'audio/' + media.src  + '.mp3'" type="audio/mpeg">
                             <source :src="'audio/' + media.src  + '.ogg'" type="audio/ogg">
                         </audio>
+                        <progress id="progress" value="0"></progress>
                     </div>
                 </div>
                 <div class="controls d-flex justify-content-center mt-4 mb-4">

@@ -81,6 +81,11 @@ a {
     font-size: 1.2em;
 }
 
+#progress {
+    background-color: $black;
+    width: 100%;
+}
+
 button {
     border: $purple 2px solid;
     border-radius: 8px;
