@@ -1,4 +1,3 @@
-Vue.prototype.$mediaEl = document.querySelector('.media');
 
 Vue.component('poster', {
     props: {
@@ -10,7 +9,9 @@ Vue.component('poster', {
     },
 
     template: `
-    <li @click="$emit('make-selection', type, src, name, isvideo, isaudio)" tabindex="0" class="thumb mx-auto">
+    <li @click="$emit('make-selection', type, src, name, isvideo, isaudio)"
+    tabindex="0" class="thumb mx-auto"
+    @keyup.enter="$emit('make-selection', type, src, name, isvideo, isaudio)">
         <h3 class="h4 text-center">{{ type }}</h3>
         <img class="mt-3" :src="'images/' + src + '.jpg'" alt="poster">
         <h4 class="h6 text-center mt-2">{{ name }}</h4>

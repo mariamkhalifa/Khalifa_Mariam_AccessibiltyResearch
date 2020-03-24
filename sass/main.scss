@@ -85,10 +85,34 @@ li {
     font-size: 1.2em;
 }
 
-#progress {
-    background-color: $black;
+progress[value]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
     width: 100%;
+    height: 5px;
+    color: $purple;
 }
+
+progress[value]::-webkit-progress-bar {
+    border-radius: 5px;
+    background-color: black;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 5px;
+    background-color: $purple;
+}
+
+::-moz-progress-bar {
+    background-color: $purple;
+}
+
+// #progress {
+//     background-color: $black;
+//     width: 100%;
+// }
 
 button {
     border: $purple 2px solid;
@@ -118,6 +142,7 @@ button:hover, button:focus {
 
 .footer {
     background-color: $purple;
+    color: $black;
 }
 
 @media screen and (min-width: 768px)

@@ -29,7 +29,7 @@
                 <h2 class="h2 d-block mx-auto text-center">Choose Your Media</h2>
                 <div class="media-container container mt-5">
                     <ul class="row">
-                        <poster @make-selection="setSrc" v-for="(element, index) in mediaelements" 
+                        <poster @make-selection="setSrc" v-for="(element, index) in mediaelements"
                         :src="element.src"
                         :type="element.type"
                         :name="element.name"
@@ -47,26 +47,26 @@
                     <div class="col">
                         <h3 class="h3 text-center">{{ mediatype }}</h3>
                         <h4 class="h4 text-center">{{ medianame }}</h4>
-                        <video v-if="video" v-on:timeupdate="updateProgress" ref="mediaEl" class="media mt-3 d-block mx-auto">
+                        <video v-if="video" v-on:timeupdate="updateProgress" ref="mediaEl" class="media mt-3 d-block mx-auto" role="video">
                             <source :src="'video/' + mediasrc  + '.mp4'" type="video/mp4">
                             <source :src="'video/' + mediasrc  + '.webm'" type="video/webm">
                             <track kind="captions" :src="'video/' + mediasrc  + '.vtt'">
                         </video>
-                        <audio v-if="audio" ref="mediaEl" class="media d-block mt-5 mx-auto" controls>
+                        <audio v-if="audio" ref="mediaEl" class="media d-block mt-5 mx-auto" controls role="audio">
                             <source :src="'audio/' + mediasrc  + '.mp3'" type="audio/mpeg">
                             <source :src="'audio/' + mediasrc  + '.ogg'" type="audio/ogg">
                         </audio>
-                        <progress v-show="video" ref="progress" id="progress" value="0"></progress>
+                        <progress v-show="video" ref="progress" id="progress" value="0" aria-label="progress bar" role="progressbar"></progress>
                     </div>
                 </div>
                 <div class="controls d-flex justify-content-center mt-4 mb-4">
-                    <i v-if="media.paused" @click="playPauseMedia" @keyup.enter="playPauseMedia" tabindex="0" class="icon fas fa-pause mr-2" aria-label="pause"></i>
-                    <i v-else @click="playPauseMedia" @keyup.enter="playPauseMedia" tabindex="0" class="icon fas fa-play mr-2" aria-label="play"></i>
+                    <i v-if="media.paused" @click="playPauseMedia" @keyup.enter="playPauseMedia" tabindex="0" class="icon fas fa-pause mr-2" aria-label="pause" role="button"></i>
+                    <i v-else @click="playPauseMedia" @keyup.enter="playPauseMedia" tabindex="0" class="icon fas fa-play mr-2" aria-label="play" role="button"></i>
                     <i @click="stopMedia" @keyup.enter="stopMedia" tabindex="0" class="icon fas fa-stop mr-2" aria-label="stop"></i>
-                    <i @click="muteMedia" @keyup.enter="muteMedia" v-if="media.muted" tabindex="0" class="icon fas fa-volume-down mr-2" aria-label="unmute"></i>
-                    <i @click="muteMedia" @keyup.enter="muteMedia" v-else tabindex="0" class="icon fas fa-volume-mute mr-2" aria-label="mute"></i>
-                    <i @click="toggleCaptions" @keyup.enter="toggleCaptions" v-if="video" tabindex="0" class="icon fas fa-closed-captioning" aria-label="closed captions"></i>
-                    <button v-if="audio" v-on:click="viewTranscript" @keyup.enter="viewTranscript" class="ml-3 py-2 px-4">transcript</button>
+                    <i @click="muteMedia" @keyup.enter="muteMedia" v-if="media.muted" tabindex="0" class="icon fas fa-volume-down mr-2" aria-label="unmute" role="button"></i>
+                    <i @click="muteMedia" @keyup.enter="muteMedia" v-else tabindex="0" class="icon fas fa-volume-mute mr-2" aria-label="mute" role="button"></i>
+                    <i @click="toggleCaptions" @keyup.enter="toggleCaptions" v-if="video" tabindex="0" class="icon fas fa-closed-captioning" aria-label="closed captions" role="button"></i>
+                    <button v-if="audio" @click="viewTranscript" @keyup.enter="viewTranscript" class="ml-3 py-2 px-4" tabindex="0" role="button">transcript</button>
                 </div>
                 <p class="transcript" :class="{'view':transcript.view}">
                     You and me<br>
