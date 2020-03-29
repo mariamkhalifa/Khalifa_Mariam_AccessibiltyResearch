@@ -1,4 +1,4 @@
-<p align="center"><img src="images/logo.svg" width="30%">
+<img src="images/logo.svg" width="30%">
 
 # M Media Player
 
